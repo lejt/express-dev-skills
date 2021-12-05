@@ -7,7 +7,6 @@ module.exports = {
     update
 }
 
-
 function index(req, res) {
     //get data from models
     let skills = Skill.getAll();
@@ -29,6 +28,7 @@ function show(req, res) {
 };
 
 function update(req, res) {
-    res.send('updating ');
+    console.log('updating');
+    res.send('updating');
 };
 
