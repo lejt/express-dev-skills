@@ -39,14 +39,15 @@ function newOne(req, res) {
 };
 // 2) add data to skills page
 function create(req, res) {
-    //send data to be added to models and for organizing
-    Skill.create(req.body);
 
     //redirects page after submit based on information added
     let idx = 1;
     if (req.body.stack == "backEnd") {
         idx = 2;
     }
+
+    //send data to be added to models and for organizing
+    Skill.create(idx, req.body);
 
     res.redirect(`/skills/${idx}`);
 };

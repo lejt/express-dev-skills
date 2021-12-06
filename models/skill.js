@@ -30,6 +30,7 @@ function getOne(id) {
 };
 
 // add to database
-function create(id) {
-
+function create(idx, body) {
+    const skillsArrIdx = skills.findIndex(skill => skill.id == idx);
+    skills[skillsArrIdx].technologies.push({language: body.addSkill, experience: body.experience}); 
 }
