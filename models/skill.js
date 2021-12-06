@@ -17,7 +17,8 @@ const skills = [
 
 module.exports = {
     getAll,
-    getOne
+    getOne,
+    create,
 };
 
 function getAll() {
@@ -27,3 +28,8 @@ function getAll() {
 function getOne(id) {
     return skills.find(skill => skill.id == id);
 };
+
+// add to database
+function create(id) {
+
+}

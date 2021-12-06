@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<body>
+    <h1>Add Skills Here</h1>
+
+    <form action="/skills/:id" method="POST" autocomplete="off">
+        <h2>Stack:</h2>
+        <label for="stack" id="stack">Choose a side:</label>
+        <select name="stack" id="stack">
+            <option value="frontEnd">Front-end</option>
+            <option value="backEnd">Back-end</option>
+        </select>
+
+        <h3>Language/Framework</h3> 
+        <input name="addSkill">
+        
+        <h3>Experience</h3>
+        <input name="experience">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    
+</body>
+
+<%- include('../partials/footer') %>

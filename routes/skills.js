@@ -5,15 +5,19 @@ var router = express.Router();
 const skillsCtrl = require('../controllers/skills');
 
 
-// shows default page
+// show default page
 router.get('/', skillsCtrl.index);
+
+// add skills 
+router.get('/new', skillsCtrl.new);
 
 // show individual skills from each category upon click
 router.get('/:id', skillsCtrl.show);
 
+
 // testing put
-router.put('/:id', skillsCtrl.update);
+// router.put('/:id', skillsCtrl.update);
 
-
+router.post('/:id', skillsCtrl.create);
 
 module.exports = router;
