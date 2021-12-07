@@ -37,8 +37,7 @@ function create(idx, body) {
     skills[skillsArrIdx].technologies.push({id: randomIdx, language: body.addSkill, experience: body.experience}); 
 };
 
-function deleteOne() {
-    // req.params.
-    // splice models data arr
-    // skills.splice(idx, 1)
+function deleteOne(outerID, innerID) {
+    const idToDelete = skills[outerID-1].technologies.findIndex(tech => tech.id == innerID);
+    skills[outerID-1].technologies.splice(idToDelete, 1);
 }

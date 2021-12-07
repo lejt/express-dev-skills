@@ -55,12 +55,12 @@ function create(req, res) {
 
 function deleteOne(req, res) {
     //delete from models db 
-    const idToDelete = req.params.id
-    Skill.deleteOne(idToDelete)
+    const idToDelete = req.params.id;
+    const idOfIndex = req.query.skillID;
+    
+    Skill.deleteOne(idOfIndex, idToDelete);
 
     //find which page to display updated info one
-
-    console.log(req.params.id);
-
-    // res.redirect(`/skills/${idx}`)
+    // console.log(req.query.skillID);
+    res.redirect(`/skills/${idOfIndex}`)
 }
