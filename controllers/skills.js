@@ -64,12 +64,16 @@ function deleteOne(req, res) {
 
 // like the add skill functions, there are 2-steps below:
 function edit(req, res) {
-    let skill = Skill.getOneLanguage(req.params.skill, req.params.tech);
+    // let skill = Skill.getOne();
+    const skillID = req.params.skill;
+    let tech = Skill.getOneLanguage(req.params.skill, req.params.tech);
     // console.log(req.params.skill, req.params.tech);
-    // console.log(skill);
-    res.render('skills/edit', {skill});
+    // console.log(tech);
+    res.render('skills/edit', {skillID, tech});
 }
 function update(req, res) {
     console.log('update here');
-    // res.redirect(`/skills/${id}`)
+    // Skill.update(filled out info for techlanguag and techexpereicne)
+    Skill.update(req.params.skill);
+    res.redirect(`/skills/${req.params.skill}`)
 }

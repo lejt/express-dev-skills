@@ -21,6 +21,7 @@ module.exports = {
     getOneLanguage,
     create,
     deleteOne,
+    update,
 };
 
 function getAll() {
@@ -47,10 +48,12 @@ function deleteOne(outerID, innerID) {
     skills[outerID-1].technologies.splice(idToDelete, 1);
 }
 
-function update(id, ) {
-    // Find the index based on the id of the todo object
-    const idx = todos.findIndex(todo => todo.id === parseInt(id));
-    // Ensure the id is copied over
-    todo.id = parseInt(id);
-    todos.splice(idx, 1, todo);
+function update(id) {
+    // Find the index based on the id of the skills object
+    const idx = skills.findIndex(skill => skill.id === parseInt(id));
+    const skill = skills[idx];
+    
+    
+    // todo.id = parseInt(id);
+    // todos.splice(idx, 1, todo);
 }

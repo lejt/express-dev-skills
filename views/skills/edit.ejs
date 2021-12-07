@@ -3,13 +3,15 @@
 <body>
     <h1>Edit Skill Here</h1>
     
-    <form action="/skills/:id?_method=PUT" method="POST" autocomplete="off">
+    <form action="/skills/<%= skillID %>/<%= tech.id %>?_method=PUT" method="POST" autocomplete="off">
         <br><br>
         <h3>Language/Framework</h3>
-        <input name="skillChange" value=<%= skill.language %>>
+        <input name="skillChange" value=<%= tech.language %>>
         <br><br>
         <h3>Experience</h3>
-        <input name="experienceChange" value=<%= skill.experience %>>
+        <textarea name="experienceChange" rows="4" cols="50">
+        <%= tech.experience %>
+        </textarea>
         <br><br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

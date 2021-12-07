@@ -22,7 +22,7 @@ router.delete('/:id', skillsCtrl.delete);
 
 // updates data through PUT
 router.get('/:skill/:tech/edit', skillsCtrl.edit);    //'whatever is here dictates route in URL', not dictated in controller
-router.put('/:id', skillsCtrl.update);
+router.put('/:skill/:tech', skillsCtrl.update);
 
 
 module.exports = router;
