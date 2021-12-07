@@ -20,5 +20,9 @@ router.post('/:id', skillsCtrl.create);
 // delete data entries
 router.delete('/:id', skillsCtrl.delete);
 
+// updates data through PUT
+router.get('/:id/:id/edit', skillsCtrl.edit);    //'whatever is here dictates route in URL', not dictated in controller
+router.put('/:id', skillsCtrl.update);
+
 
 module.exports = router;

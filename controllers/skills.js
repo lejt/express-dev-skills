@@ -8,6 +8,8 @@ module.exports = {
     new: newOne,
     create,
     delete: deleteOne,
+    edit,
+    update
 }
 
 function index(req, res) {
@@ -27,10 +29,6 @@ function show(req, res) {
     res.render('skills/show', {
         skill
     });
-};
-function update(req, res) {
-    console.log('updating');
-    res.send('updating');
 };
 
 // 2-step add skill functions below:
@@ -57,10 +55,19 @@ function deleteOne(req, res) {
     //delete from models db 
     const idToDelete = req.params.id;
     const idOfIndex = req.query.skillID;
-    
+
     Skill.deleteOne(idOfIndex, idToDelete);
 
     //find which page to display updated info one
     // console.log(req.query.skillID);
     res.redirect(`/skills/${idOfIndex}`)
+}
+
+// like the add skill functions, there are 2-steps below:
+function edit(req, res) {
+    res.render('skills/edit');
+}
+function update(req, res) {
+    console.log('hi');
+    // res.redirect(`/skills/${id}`)
 }
