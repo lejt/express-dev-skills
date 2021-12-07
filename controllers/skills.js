@@ -72,8 +72,9 @@ function edit(req, res) {
     res.render('skills/edit', {skillID, tech});
 }
 function update(req, res) {
-    console.log('update here');
-    // Skill.update(filled out info for techlanguag and techexpereicne)
-    Skill.update(req.params.skill);
-    res.redirect(`/skills/${req.params.skill}`)
+    // console.log(req.body);
+
+    // Skill.update(filled out info for techlanguag and techexperience)
+    Skill.update(req.params.skill, req.params.tech, req.body);
+    res.redirect(`/skills/${req.params.skill}`);
 }

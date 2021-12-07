@@ -48,12 +48,13 @@ function deleteOne(outerID, innerID) {
     skills[outerID-1].technologies.splice(idToDelete, 1);
 }
 
-function update(id) {
-    // Find the index based on the id of the skills object
-    const idx = skills.findIndex(skill => skill.id === parseInt(id));
+function update(outerID, innerID, body) {
+    // Find the index of the skills object in either frontend or backend
+    const idx = skills.findIndex(skill => skill.id === parseInt(outerID));
     const skill = skills[idx];
-    
-    
-    // todo.id = parseInt(id);
-    // todos.splice(idx, 1, todo);
+
+    const idOfChange = skill.technologies.findIndex(tech => tech.id == innerID);
+    // console.log(idOfChange);
+    skill.technologies[idOfChange].language = body.skillChange;
+    skill.technologies[idOfChange].experience = body.experienceChange;
 }
