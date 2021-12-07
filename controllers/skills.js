@@ -65,9 +65,10 @@ function deleteOne(req, res) {
 
 // like the add skill functions, there are 2-steps below:
 function edit(req, res) {
+    console.log('edit here: '+req.params.id);
     res.render('skills/edit');
 }
 function update(req, res) {
-    console.log('hi');
+    console.log('updateh ere');
     // res.redirect(`/skills/${id}`)
 }
