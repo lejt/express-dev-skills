@@ -18,6 +18,7 @@ const skills = [
 module.exports = {
     getAll,
     getOne,
+    getOneLanguage,
     create,
     deleteOne,
 };
@@ -25,9 +26,13 @@ module.exports = {
 function getAll() {
     return skills;
 };
-
+// 1 layer deep getOne
 function getOne(id) {
     return skills.find(skill => skill.id == id);
+};
+// 2 layer deep getOne
+function getOneLanguage(outerID, innerID) {
+    return skills[outerID-1].technologies.find(tech => tech.id == innerID);
 };
 
 // add to database
@@ -40,4 +45,12 @@ function create(idx, body) {
 function deleteOne(outerID, innerID) {
     const idToDelete = skills[outerID-1].technologies.findIndex(tech => tech.id == innerID);
     skills[outerID-1].technologies.splice(idToDelete, 1);
+}
+
+function update(id, ) {
+    // Find the index based on the id of the todo object
+    const idx = todos.findIndex(todo => todo.id === parseInt(id));
+    // Ensure the id is copied over
+    todo.id = parseInt(id);
+    todos.splice(idx, 1, todo);
 }

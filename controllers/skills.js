@@ -53,22 +53,23 @@ function create(req, res) {
 
 function deleteOne(req, res) {
     //delete from models db 
-    const idToDelete = req.params.id;
-    const idOfIndex = req.query.skillID;
+    const idToDelete = req.query.techID;
+    const idOfDB = req.params.id;
 
-    Skill.deleteOne(idOfIndex, idToDelete);
+    Skill.deleteOne(idOfDB, idToDelete);
 
     //find which page to display updated info one
-    // console.log(req.query.skillID);
-    res.redirect(`/skills/${idOfIndex}`)
+    res.redirect(`/skills/${idOfDB}`)
 }
 
 // like the add skill functions, there are 2-steps below:
 function edit(req, res) {
-    console.log('edit here: '+req.params.id);
-    res.render('skills/edit');
+    let skill = Skill.getOneLanguage(req.params.skill, req.params.tech);
+    // console.log(req.params.skill, req.params.tech);
+    // console.log(skill);
+    res.render('skills/edit', {skill});
 }
 function update(req, res) {
-    console.log('updateh ere');
+    console.log('update here');
     // res.redirect(`/skills/${id}`)
 }

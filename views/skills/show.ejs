@@ -18,11 +18,11 @@
 
                     <td>
                         <form action="/skills/<%= skill.id %>/<%= tech.id %>/edit" method="GET">
-                            <button type="submit" class="btn btn-secondary">Edit</button>
+                            <button type="submit" class="btn btn-secondary">X</button>
                         </form>
                     </td>
                     <td>
-                        <form action="/skills/<%= tech.id %>?_method=DELETE&skillID= <%= skill.id %>" method="POST">
+                        <form action="/skills/<%= skill.id %>?_method=DELETE&techID= <%= tech.id %>" method="POST">
                             <button type="submit" class="btn btn-danger">X</button>
                         </form>
                     </td>
