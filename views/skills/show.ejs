@@ -2,14 +2,31 @@
 
 <body>
     <h1><%= skill.skill.toUpperCase() %> EXPERIENCE</h1>
-    <h2>Technologies</h2>
-    <table>
-        <% skill.technologies.forEach(tech => {  %>
-        <th><%= tech.language.toUpperCase() %></th>
-        <tr><td><%= tech.experience %></td></tr>
-        <% }); %>
+   
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Language/Framework</th>
+                <th>Experience</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% skill.technologies.forEach(tech => {  %>
+                <tr>
+                    <td><%= tech.language.toUpperCase() %></td>
+                    <td><%= tech.experience %></td>
+
+                    <td>
+                        <form action="/skills/<%= tech.id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="btn btn-danger">X</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </tbody>
     </table>
 
+    <br>
     <h2>Projects</h2>
     <a href=<%= skill.projectlinks %> ><%= skill.projects.toUpperCase() %></a>
 </body>

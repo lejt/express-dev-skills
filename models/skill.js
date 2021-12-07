@@ -1,16 +1,16 @@
 const skills = [
     {id: 1, skill: "front-end", proficiency: "60%", 
     technologies: [
-        {language: "html", experience: "linking to external css & js"},
-        {language: "css", experience: "flex, grid, animation, wireframing, responsiveness"},
-        {language: "javascript", experience: "async functions, DOM manipulation, DRY logic"}],
+        {id: 123456, language: "html", experience: "linking to external css & js"},
+        {id: 113556, language: "css", experience: "flex, grid, animation, wireframing, responsiveness"},
+        {id: 554456, language: "javascript", experience: "async functions, DOM manipulation, DRY logic"}],
     projects: "simon game", projectlinks: "https://lejt.github.io/SimonGame/",
     },
     {id: 2, skill: "back-end", proficiency: "5%", 
     technologies: [
-        {language: "node express", experience: "create local server with proper routing"},
-        {language: "mongoDB", experience: "none"},
-        {language: "PostgreSQL", experience: "none"}],
+        {id: 967452, language: "node express", experience: "create local server with proper routing"},
+        {id: 152875, language: "mongoDB", experience: "none"},
+        {id: 942636, language: "PostgreSQL", experience: "none"}],
     projects: "this server", projectlinks: "",
     }
 ];
@@ -19,6 +19,7 @@ module.exports = {
     getAll,
     getOne,
     create,
+    deleteOne,
 };
 
 function getAll() {
@@ -31,6 +32,13 @@ function getOne(id) {
 
 // add to database
 function create(idx, body) {
+    const randomIdx = Math.floor(Math.random() * (Math.floor(1000000) - Math.ceil(100000)) + Math.ceil(100000)); 
     const skillsArrIdx = skills.findIndex(skill => skill.id == idx);
-    skills[skillsArrIdx].technologies.push({language: body.addSkill, experience: body.experience}); 
+    skills[skillsArrIdx].technologies.push({id: randomIdx, language: body.addSkill, experience: body.experience}); 
+};
+
+function deleteOne() {
+    // req.params.
+    // splice models data arr
+    // skills.splice(idx, 1)
 }

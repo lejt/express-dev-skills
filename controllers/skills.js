@@ -7,6 +7,7 @@ module.exports = {
     update,
     new: newOne,
     create,
+    delete: deleteOne,
 }
 
 function index(req, res) {
@@ -51,3 +52,15 @@ function create(req, res) {
 
     res.redirect(`/skills/${idx}`);
 };
+
+function deleteOne(req, res) {
+    //delete from models db 
+    const idToDelete = req.params.id
+    Skill.deleteOne(idToDelete)
+
+    //find which page to display updated info one
+
+    console.log(req.params.id);
+
+    // res.redirect(`/skills/${idx}`)
+}
